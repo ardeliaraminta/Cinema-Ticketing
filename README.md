@@ -1,4 +1,4 @@
-# Cinema-Ticketing
+# Cinema Booking System - DSA 
 
 - Sri Kalyan Rohan
 - Raphael Reynaldi
