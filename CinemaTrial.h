@@ -57,7 +57,7 @@ void indoXXI::addList()
     	a.seatStat = 0; 
     	a.cosName = "NULL";
     	
-		last.link = a;
+	last.link = a;
         a.before = last;
         last = a;
         last.link = first;
