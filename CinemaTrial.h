@@ -78,21 +78,20 @@ void indoXXI::displayAll()
         cout<<"                                CINEMA SCREEEN :P                   	             \n";
         cout<<"------------------------------------------------------------------------------------\n";
         
-		while(temp.link!= first)
-        {
+	while(temp.link!= first){
+		
             if(temp.seatNum/10 ==0)
             cout<<"0"<<temp.seatNum<<" :";
             else
             cout<<""<<temp.seatNum<<" :";
             
-			if(temp.seatStat ==0)
+	    if(temp.seatStat ==0)
             cout<<"|___| ";
             else
             cout<<"|_TAKEN_| ";
             count++;
             
-			if(count%5==0)
-            {
+	    if(count%5==0){
             cout<<endl;
             i++;
 
