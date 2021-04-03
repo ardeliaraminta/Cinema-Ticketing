@@ -80,7 +80,7 @@ void indoXXI::displayAll()
         
 	while(temp.link!= first){
 		
-            if(temp.seatNum/10 ==0)
+        if(temp.seatNum/10 ==0)
             cout<<"0"<<temp.seatNum<<" :";
             else
             cout<<""<<temp.seatNum<<" :";
@@ -106,6 +106,48 @@ void indoXXI::displayAll()
             cout<<"|_TAKEN_| ";
 
     }
+
+void seatBook(){
+	int numSeat; 
+	string initial;
+	// label allows the user to be redirected the label 
+	label: 
+	
+	cout << " Please choose your seat/s: " << endl; 
+	cin >> numSeat;
+	
+	cout << " Initial: " << endl; 
+	cin >> initial; 
+	
+	// if the chosen no of seat is not available, less than 1 and more than 50 it will return to the label 
+	if (numSeat<1||numSeat>50)
+    {
+        cout<<" The seats exceeded the availability :D, please choose other seat: ";
+        goto label;
+    }
+    
+    //for checking the status of the seats 
+    Node *temp; 
+    temp = new Node;
+    temp = first ;
+    
+	while(temp.seatNum != numSeat)
+    {
+        temp = temp.link;
+    }
+    
+    //booked
+	if(temp.seatStat == 1)
+    cout<<"Selected seats are booked";
+    
+    // not booked 
+	else{
+    temp.seatStat = 1;
+    temp.cosName = initial;
+    cout<<"Selected seats "<<initial<<" successfully booked!\n";
+    }
+
+
 }
 	
 
