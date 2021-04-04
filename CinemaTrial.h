@@ -1,6 +1,3 @@
-#include<iostream>
-#include<stdlib.h>
-
 // Movie Ticketing System 
 // i use . instead of -> becoz im confused, later will be chanegd 
 
@@ -21,30 +18,30 @@ class Node{
 
 class indoXXI{
 	public:
-	Node* first, *last, *temp;
+	
+	Node* first, * last, * temp;
 	
 	indoXXI()
 	{
-		first == nullptr;
+		first == NULL;
 	}
 
 	void addList();
 	void displayAll(); 
 	void seatBook();
-	void cancelBook():
-	void seatAvailable(); 
+	void cancelBook();
+	void seatAvailable();
 	
 };
 
-void indoXXI::addList()
-{
-       
+void indoXXI::addList(){
+    
     int i = 1;
-    int numSeat = 50
+    int numSeat = 50;
     temp = new Node; 
-    temp.seatNum = 1; 
-    temp.seatStat = 0; 
-    temp.Name = "NULL"; 
+    temp->seatNum = 1; 
+    temp->seatStat = 0; 
+    temp->cosName = "NULL"; 
     last = first = temp; 
     
 	// for the number of seats ( 50 with 10 each rows ) 
@@ -53,18 +50,17 @@ void indoXXI::addList()
     {
     	Node *a; 
     	a = new Node;
-    	a.seatNum = i;
-    	a.seatStat = 0; 
-    	a.cosName = "NULL";
+    	a->seatNum = i;
+    	a->seatStat = 0; 
+    	a->cosName = "NULL";
     	
-	last.link = a;
-        a.before = last;
+		last->link = a;
+        a->before = last;
         last = a;
-        last.link = first;
-        first.before = last;	
+        last->link = first;
+        first->before = last;	
 	}
 }
-
 
 void indoXXI::displayAll()
 {
@@ -74,20 +70,20 @@ void indoXXI::displayAll()
         int count = 0;
         
 		// diplay the cinema seating 
-	cout<<"\n------------------------------------------------------------------------------------\n";
-        cout<<"                                CINEMA SCREEEN :P                   	             \n";
-        cout<<"------------------------------------------------------------------------------------\n";
+		cout<<"\n -------------------------------------------------\n";
+        cout<<" |               CINEMA SCREEEN :P                |  \n";
+        cout<<" --------------------------------------------------\n";
         
-	while(temp.link!= first){
+	while(temp->link!= first){
 		
-        if(temp.seatNum/10 ==0)
-            cout<<"0"<<temp.seatNum<<" :";
-            else
-            cout<<""<<temp.seatNum<<" :";
+        if(temp->seatNum/10 ==0)
+            cout<<"0"<<temp->seatNum<<" :";
+        else
+            cout<<""<<temp->seatNum<<" :";
             
-	    if(temp.seatStat ==0)
+	    if(temp->seatStat ==0)
             cout<<"|___| ";
-            else
+        else
             cout<<"|_TAKEN_| ";
             count++;
             
@@ -97,17 +93,19 @@ void indoXXI::displayAll()
 
             }
 
-            temp = temp.link;
+            temp = temp->link;
         }
-            cout<<"S"<<temp->seatNum<<" :";
-            if(temp.seatStat==0)
+            cout<<""<<temp->seatNum<<" :";
+            if(temp->seatStat==0)
             cout<<"|___| ";
             else
             cout<<"|_TAKEN_| ";
-
+        
     }
+}
 
-void seatBook(){
+void indoXXI::seatBook()
+{
 	int numSeat; 
 	string initial;
 	// label allows the user to be redirected the label 
@@ -127,29 +125,26 @@ void seatBook(){
     }
     
     //for checking the status of the seats 
-    Node *temp; 
+    Node *temp;
     temp = new Node;
-    temp = first ;
-    
-	while(temp.seatNum != numSeat)
+    temp = first;
+    while(temp->seatNum!= numSeat)
     {
-        temp = temp.link;
+        temp=temp->link;
     }
     
     //booked
-	if(temp.seatStat == 1)
+	if(temp->seatStat == 1)
     cout<<"Selected seats are booked";
     
     // not booked 
 	else{
-    temp.seatStat = 1;
-    temp.cosName = initial;
+    temp->seatStat = 1;
+    temp->cosName = initial;
     cout<<"Selected seats "<<initial<<" successfully booked!\n";
     }
-
-
 }
-	
+
 
 
 
