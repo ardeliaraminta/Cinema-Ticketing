@@ -1,5 +1,5 @@
 // Movie Ticketing System
-// i use . instead of -> becoz im confused, later will be chanegd 
+
 
 #include<iostream>
 #include<stdlib.h>
@@ -9,7 +9,7 @@ using namespace std;
 class Node{
 	public:
 
-	// intialize node, seat number, seat status, and name of the buyer  
+	// intialize node, seat number, seat status, and the buyer  
 	Node* before; 
 	Node* link; 
 	int seatNum;
@@ -37,8 +37,9 @@ class indoXXI{
 };
 
 void indoXXI::addList(){
-    
+// initialize the seat starts from 1 
     int i = 1;
+// total seats available
     int numSeat = 50;
     temp = new Node; 
     temp->seatNum = 1; 
@@ -71,31 +72,34 @@ void indoXXI::displayAll()
         temp = first;
         int count = 0;
         
-		// diplay the cinema seating 
-		cout<<"\n -------------------------------------------------\n";
-        cout<<" |               CINEMA SCREEEN :P                |  \n";
-        cout<<" --------------------------------------------------\n";
-        
+    // diplay the cinema seating 
+		cout<<"\n ------------------------------------------------\n";
+        cout<<" |               CINEMA SCREEEN                     |\n";
+        cout<<"\n -------------------------------------------------\n";
+
+	// display the seats arrangement if its less than 10 it will add 0 infront of a
+	// single digit number = 1,2,3,5,6,7,8,9,10
+
 	while(temp->link!= first){
 		
-        if(temp->seatNum/10 ==0)
+        if(temp->seatNum/10 == 0)
             cout<<"0"<<temp->seatNum<<" :";
         else
             cout<<""<<temp->seatNum<<" :";
-            
+
+		// if the seat status is 0 or empty else is booked    
 	    if(temp->seatStat ==0)
             cout<<"|___| ";
         else
-            cout<<"|_TAKEN_| ";
-            count++;
-            
+            cout<<"|_TAKEN_| "; 
+			count++;
+        
 	    if(count%5==0){
             cout<<endl;
             i++;
 
-            }
-
-            temp = temp->link;
+        }
+			temp = temp->link;
         }
             cout<<""<<temp->seatNum<<" :";
             if(temp->seatStat==0)
@@ -119,14 +123,16 @@ void indoXXI::seatBook()
 	cout << " Initial: " << endl; 
 	cin >> initial; 
 	
-	// if the chosen no of seat is not available, less than 1 and more than 50 it will return to the label 
+	// if the chosen no of seat is not available,
+	// less than 1 and more than 50 it will return to the label 
+	
 	if (numSeat<1||numSeat>50)
     {
         cout<<" The seats exceeded the availability :D, please choose other seat: ";
         goto label;
     }
     
-    //for checking the status of the seats 
+    //for checking the status of the seats
     Node *temp;
     temp = new Node;
     temp = first;
@@ -146,8 +152,11 @@ void indoXXI::seatBook()
     cout<<"Selected seats for "<<initial<<" successfully booked!\n";
     }
 }
-    
+
+
 int main (){
+	
+	
 	indoXXI test; 
 	test.addList(); 
 	int x;
@@ -160,9 +169,6 @@ int main (){
 		cout << "1) Seat Status" << endl; 
 		cout << "2) Book seat "<<endl; 
 		cout << "3) Available seat" << endl; 
-		
-		
-		
 		
 	    cin>>x;
 	    switch(x)
