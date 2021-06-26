@@ -124,6 +124,7 @@ void indoXXI::addList(){
     
 	// for the number of seats ( 50 with 10 each rows ) 
        
+    // for loop to iterate the number of seat available 
     for(int i = 2; i <= numSeat; i++)
     {
     	// create a node pointer
@@ -141,6 +142,7 @@ void indoXXI::addList(){
     	//create the doubly circular linked list which are nodes that are created using self referential structures
     	//previous node -> next pointer ( find last )
     	
+    	//find the last node and set it as a 
 		last->link = a;
 		// setting up previous and next of new node
         a->before = last;
@@ -148,7 +150,7 @@ void indoXXI::addList(){
         last = a;
         // make new node next of old last
         last->link = first;
-        //make last previous of new node
+        //make last previous of new node or make new node previous of start
         first->before = last;	
 	}
 }
