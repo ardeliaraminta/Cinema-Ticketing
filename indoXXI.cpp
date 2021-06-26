@@ -126,16 +126,29 @@ void indoXXI::addList(){
        
     for(int i = 2; i <= numSeat; i++)
     {
+    	// create a node pointer
+		// and initialize a new node
     	Node *a; 
     	a = new Node;
+    	
+    	// set a as the new node 
+    	// seat status initially 0 since its null / not booked yet
+    	// "cosName" or the customer name/initial's value is initially null 
     	a->seatNum = i;
     	a->seatStat = 0; 
     	a->cosName = "NULL";
     	
+    	//create the doubly circular linked list which are nodes that are created using self referential structures
+    	//previous node -> next pointer ( find last )
+    	
 		last->link = a;
+		// setting up previous and next of new node
         a->before = last;
+        //set the next node
         last = a;
+        // make new node next of old last
         last->link = first;
+        //make last previous of new node
         first->before = last;	
 	}
 }
@@ -176,6 +189,7 @@ void indoXXI::displayAll()
             i++;
 
         }
+        //find node having searched value and next node of it
 			temp = temp->link;
         }
             cout<<""<<temp->seatNum<<" :";

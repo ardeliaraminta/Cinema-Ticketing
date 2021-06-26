@@ -22,7 +22,7 @@ public:
     
     
 void Account::accLogin(){
-    
+    // user name and password
 	system("cls");
     cout<<"Please enter"<<endl;
     cout<<"Username :";
@@ -30,6 +30,8 @@ void Account::accLogin(){
     cout<<"Password :";
     cin>>password;
     
+    //read the text file and compare the user entry and the existing text file
+    // for both username and password
     ifstream input("customerData.txt");
     while(input>>usr>>pwd)
     {
@@ -42,6 +44,8 @@ void Account::accLogin(){
     }
     
 	input.close();
+	
+	// then it notifies the customer if the login is unsuccessful or success
     if(count==1)
     {
             cout<<"Hi there "<<user<<"\n Login Successful.\n";
@@ -56,11 +60,14 @@ void Account::accLogin(){
 		
 void Account::accRegister(){
     system("cls");
-    cout<<"Enter the username :";
+    
+	cout<<"Enter the username :";
     cin>>regUser;
-    cout<<"\nEnter the password :";
+    
+	cout<<"\nEnter the password :";
     cin>>regPass;
     
+    // write the data into the text file 
     ofstream reg("customerData.txt",ios::app);
     reg<<regUser<<' '<<regPass<<endl;
     system("cls");
