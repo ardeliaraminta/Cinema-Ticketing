@@ -2,6 +2,10 @@
 #include<stdlib.h>
 #define MAX 50
 
+#include<iostream>
+#include<stdlib.h>
+#define MAX 50
+
 using namespace std; 
 
 //creating node class
@@ -10,9 +14,11 @@ class Node{
 
 	// intialize node, seat number, seat status, and the customer name  
 	Node* before; 
-	Node* link; 
+	Node* link; 	
+	// seat number, seat status initially 0 == null
 	int seatNum;
 	int seatStat; 
+	// customer initial
 	string cosName; 
 	
 };
@@ -108,6 +114,8 @@ void indoXXI::addList(){
     int i = 1;
 // total seats available
     int numSeat = 50;
+    
+    //initializing new node
     temp = new Node; 
     temp->seatNum = 1; 
     temp->seatStat = 0; 
@@ -154,7 +162,9 @@ void indoXXI::displayAll()
         else
             cout<<""<<temp->seatNum<<" :";
 
-		// if the seat status is 0 or empty else is booked    
+		// if the seat status is 0 or empty
+		// it will display blank seat
+		// if the seat status is 1     
 	    if(temp->seatStat ==0)
             cout<<"|___| ";
         else
@@ -203,6 +213,10 @@ void indoXXI::seatBook()
     Node *temp;
     temp = new Node;
     temp = first;
+    
+    // if the search seat number not equal to the current seat number,
+	// it will keep traverse through the seat numbers
+	
     while(temp->seatNum!= numSeat)
     {
         temp=temp->link;
@@ -215,8 +229,11 @@ void indoXXI::seatBook()
     
     // not booked 
 	else{
+	// change the seat status == 1 
+	// change the cosName into the initial entered by the user 
     temp->seatStat = 1;
     temp->cosName = initial;
+   
     //enqueue the node
     q.insert(*temp);
     //display queue
@@ -228,4 +245,57 @@ void indoXXI::seatBook()
 
     }
 }
+
+void indoXXI::cancelBook()
+{
+	//initialize the seat number and initial to be cancelled
+    int n;
+	string in;
+    
+	label1:
+    cout<<"Enter your seat number to cancel seat\n";
+    cin>>n;
+    cout<<"Enter your initial: ";
+	cin>>in;
+    
+    // exception handling 
+    // if seat number is out of range of the available seat, it will ask the user to input the correct seat number
+    // between 1-50 
+    
+	if(n<1||n>50)
+    {
+        cout<<"Invalid. Enter seat number to cancel (1-50)\n";
+        goto label1;
+    }
+    //initialize new temp node which is the head
+    Node *temp;
+    temp = new Node;
+    temp = first;
+    
+    // while the pointer haven't found the search seat,
+	// it will keep traversing until its found the right node of seat Number 
+	while(temp->seatNum!=n){
+        temp=temp->link;
+    }
+    
+    // if the seat is null or not booked
+    if(temp->seatStat==0){
+        cout<<"seat not booked yet!!\n";
+    }
+    else{
+    
+    // if the cosaName == initial entered ( matched between the two data, previous and the new entry ) 
+    // set the seat status = 0
+	
+	if(temp->cosName==in){
+    temp->seatStat = 0;
+    cout<<"seat cancelled!\n";
+    
+	}
+	// wrong data / seat number entered , unable to cancel
+	else
+	cout<<"Seat cannot be cancelled\n";
+    }
+}
+
 
