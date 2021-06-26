@@ -4,10 +4,11 @@
 
 using namespace std; 
 
+//creating node class
 class Node{
 	public:
 
-	// intialize node, seat number, seat status, and the buyer  
+	// intialize node, seat number, seat status, and the customer name  
 	Node* before; 
 	Node* link; 
 	int seatNum;
@@ -16,40 +17,45 @@ class Node{
 	
 };
 
+//creating queue class
 class Queue
 {
 private:
+    //using array for queue
 	Node queue[MAX];
+    //initializing front and end indices
 	int front = -1, rear = -1;
 
 public:
+    //queue operations
 	void insert(Node);
 	void delete_element();
-	void peek();
 	void display();
 };
-
+//push operation
 void Queue::insert(Node num){
 
-    //your code
+    //if the alst index is MAX-1, then queue is already full
     if (rear == MAX-1 ){
         cout << "OVERFLOW" << endl; 
-
+    //if queue is empty
     }else if(front == -1 && rear == -1){
         front = rear = 0;
         queue[rear] = num;
+    //if queue has other elements in it
     }else {
         rear += 1; 
         queue[rear] = num;
     }
 }
-
+//pop operation
  void Queue::delete_element() 
 {
     Node val;
-    // your code
+    // if queue is empty, we cannot perform the delete or pop operation
     if ( front == -1 || front > rear ) {
         cout << "UNDERFLOW" << endl;
+    // if not empty then remove the item at the front index
     } else {
         val = queue[front];
         front+=1;
@@ -59,24 +65,15 @@ void Queue::insert(Node num){
     }
 }
 
-void Queue::peek()
-{
-	if(front==-1 || front>rear)
-	{
-		cout << "\n QUEUE IS EMPTY";
-	}
-	else
-	{
-		 cout<<queue[front].cosName<<endl;
-	}
-}
-
+//displaying the elements in the queue
 void Queue::display()
 {
 	int i;
 	cout << "\n";
+    //if queue is empty
 	if(front == -1 || front > rear)
 		cout << "\n QUEUE IS EMPTY";
+    //if not empty then print elements starting from the front index to the rear index
 	else
 	{
 		for(i = front;i <= rear;i++)
@@ -85,16 +82,19 @@ void Queue::display()
 	}
 }
 
+//creating the seating arrangement class
 class indoXXI{
 	public:
-	
+	//initializing pointers
 	Node* first, * last, * temp;
+    //initializing queue
     Queue q;
 	indoXXI()
 	{
+        //setting the first pointer to null to create an empty linked list
 		first == NULL;
 	}
-
+    //operations
 	void addList();
 	void displayAll(); 
 	void seatBook();
@@ -217,10 +217,13 @@ void indoXXI::seatBook()
 	else{
     temp->seatStat = 1;
     temp->cosName = initial;
+    //enqueue the node
     q.insert(*temp);
+    //display queue
     q.display();
     cout<<"Selected seats for "<<initial<<" successfully booked!\n";
     cout<<"Your seat number is: "<<temp->seatNum<<endl;
+    //pop queue
     q.delete_element();
 
     }

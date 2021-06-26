@@ -2,22 +2,23 @@
 #include<stdlib.h>
 #include<bits/stdc++.h>
 #include<list>
-#include<D:\CSFILES\COMSCI\C++\final project dsa\Cinema-Ticketing\indoXXI.cpp>
+#include "indoXXI.cpp"
 
 using namespace std;
 
+//class for Movie Object 
 class Movie:public indoXXI{
     public:
     string title;
     string time;
     string date;
-
+    //main constructor
     Movie(string title_entry,string time_entry,string date_entry){
         title=title_entry;
         this->time=time_entry;
         this->date=date_entry;
     };
-
+    //null constructor
     Movie(){
 
     };
@@ -32,6 +33,8 @@ class Movie:public indoXXI{
 
 };
 
+//getters
+
 string Movie::getTitle(){
   return title;
 }
@@ -43,6 +46,8 @@ string Movie::getTime(){
 string Movie::getDate(){
   return date;
 }
+
+//setters
 
 void Movie::setTitle(string title){
   this->title=title;
