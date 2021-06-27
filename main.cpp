@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include "movie.cpp"
+#include "loginregister.cpp"
 
 using namespace std;
 int main(){
@@ -36,7 +37,47 @@ int main(){
     int moviechoice;
     //to store the wanted movie chosen by the user
     Movie movie;
+    // initiaze new instance to call methods from loginregister.cpp
+    Account newAcc;
+	 
+    	label3:
+    	//login main menu 
+		do	{
+		cout<<"Account Registration and Login"<<endl;
+		cout<<"1. Log in"<<endl;
+		cout<<"2. Register "<<endl;
+		cout<<"3. Exit "<<endl;
+		cout<<"\nEnter your choice :";
+		
+		cin>>choice;
+	    cout<<endl;
+	    
+	    // for login validation
+	    bool validation = false; 
+	    
+		switch(choice){
+		case 1:
+			// check if the login successful or else it will go to the break label
+			validation = newAcc.accLogin();
+			break;
+        case 2:
+        	//register new account 
+            newAcc.accRegister();
+            break;
+        case 3:
+        	return 0;	
+        default:
+            system("cls");
+            cout<<"You've made a mistake , give it a try again\n"<<endl; 
+            break;
+            // if login successful proceed to the booking 
+        } if (validation == true){
+        	break; 
+		}
 
+    } while (choice!=4);
+    
+	
     do
     {
         //MAIN MENU
