@@ -84,8 +84,7 @@ int main(){
         cout<<"Welcome to indoXXI"<<endl;
         cout<<"1. Book and Cancel a Ticket"<<endl;
         cout<<"2. View schedule"<<endl;
-        cout<<"3. View account information"<<endl;
-        cout<<"4. Exit"<<endl;
+        cout<<"3. Exit"<<endl;
         cin>>choice;
 
         switch (choice)
@@ -113,7 +112,19 @@ int main(){
                 cout<<"Please enter a valid number!"<<endl;
                 break;
             }
-            //showing the seating arrangement of the movie
+            
+        case 2:
+            //setting the movie variable into an object without any attributes
+            movie=Movie();
+            //displaying the movies
+            for(int i=0;i<size;i++){
+                cout<<i+1<<"."<<endl;
+                cout<<"Movie Name: "<<movielist[i].getTitle()<<endl;
+                cout<<"Time: "<<movielist[i].getTime()<<endl;
+                cout<<"Date: "<<movielist[i].getDate()<<endl;
+            } break; 
+            
+			//showing the seating arrangement of the movie
             cout<<endl;
             cout<<"Movie Name: "<<movie.getTitle()<<endl;
             cout<<"Time: "<<movie.getTime()<<endl;

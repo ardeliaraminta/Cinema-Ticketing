@@ -2,10 +2,6 @@
 #include<stdlib.h>
 #define MAX 50
 
-#include<iostream>
-#include<stdlib.h>
-#define MAX 50
-
 using namespace std; 
 
 //creating node class
