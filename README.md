@@ -1,4 +1,4 @@
-# Cinema Booking System - Data Structures and Algorithm 
+# Cinema Booking System - Data Structures and Algorithms
 
 A cinema booking system that is efficient for the user to get movie tickets, book a seat display and search the movies available. 
 
