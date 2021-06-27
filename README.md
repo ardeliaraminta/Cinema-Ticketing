@@ -15,7 +15,7 @@ User Manual is available on [Video Guide of Cinema-Ticketing: ]().
 Pre-requisites:
 
 DEV C++ or Visual Studio Code with the C++ plugin, or any IDE of your preference to edit C++ code.
-Cloning the repo https://github.com/ardeliaraminta/Final-Interpolation
+Cloning the repo https://github.com/ardeliaraminta/Cinema-Ticketing
 
 Contributors:
 - Sri Kalyan Rohan
