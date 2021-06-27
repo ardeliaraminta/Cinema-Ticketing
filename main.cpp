@@ -112,18 +112,6 @@ int main(){
                 cout<<"Please enter a valid number!"<<endl;
                 break;
             }
-            
-        case 2:
-            //setting the movie variable into an object without any attributes
-            movie=Movie();
-            //displaying the movies
-            for(int i=0;i<size;i++){
-                cout<<i+1<<"."<<endl;
-                cout<<"Movie Name: "<<movielist[i].getTitle()<<endl;
-                cout<<"Time: "<<movielist[i].getTime()<<endl;
-                cout<<"Date: "<<movielist[i].getDate()<<endl;
-            } break; 
-            
 			//showing the seating arrangement of the movie
             cout<<endl;
             cout<<"Movie Name: "<<movie.getTitle()<<endl;
@@ -148,7 +136,7 @@ int main(){
             }
         break;
         //displaying the schedule of movies
-        case 3:
+        case 2:
         for(int i=0;i<size;i++){
                 cout<<i+1<<"."<<endl;
                 cout<<"Movie Name: "<<movielist[i].getTitle()<<endl;

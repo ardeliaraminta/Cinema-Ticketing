@@ -9,8 +9,11 @@ using namespace std;
 
 class Account {
 private:
+	// create variables of user, password, user authentication
 	int count;
+	// login
     string user,password,usr,pwd;
+    //register
     string regUser,regPass,ru,rp;
     
 public:
@@ -18,7 +21,6 @@ public:
     bool accLogin();
     
 };
-    
     
 bool Account::accLogin(){
     // user name and password
