@@ -10,14 +10,14 @@ using namespace std;
 class Account {
 private:
 	// create variables of user, password, user authentication
-	int count;
+    int count;
 	// login
     string user,password,usr,pwd;
     //register
     string regUser,regPass,ru,rp;
     
 public:
-	void accRegister();
+    void accRegister();
     bool accLogin();
     
 };
