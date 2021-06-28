@@ -10,7 +10,7 @@ A cinema booking system that is efficient for the user to get movie tickets, boo
 ## Installation 
 
 If you would like to use this application as a user, the easiest way is to clone the repository. 
-User Manual is available on [Video Guide of Cinema-Ticketing: ]().
+User Manual is available on [Video Guide of Cinema-Ticketing: ](https://www.youtube.com/watch?v=3rTYM4i5eMY).
 
 Pre-requisites:
 
